@@ -1,6 +1,8 @@
+import { useState } from "react";
 import Game from "./Game";
 
 const GameContainer: React.FC = () => {
+  const [start, setStart] = useState(false);
   const mario = document.querySelector(".mario");
   const pipe = document.querySelector(".pipe") as HTMLElement;
   const marioElements = document.querySelector(".mario") as HTMLElement;
@@ -12,7 +14,7 @@ const GameContainer: React.FC = () => {
 
     setTimeout(() => {
       mario?.classList.remove("jump");
-    }, 500);
+    }, 750);
   };
 
   const loop = setInterval(() => {
@@ -22,6 +24,7 @@ const GameContainer: React.FC = () => {
       const cloudPosition = +window
         .getComputedStyle(clouds)
         .left.replace("px", "");
+
       const marioPosition = +window
         .getComputedStyle(mario)
         .bottom.replace("px", "");
@@ -41,6 +44,7 @@ const GameContainer: React.FC = () => {
         marioElements.style.marginLeft = "50px";
         marioElements.style.zIndex = "9999";
 
+        setStart(true);
         clearInterval(loop);
       }
     }
@@ -52,6 +56,14 @@ const GameContainer: React.FC = () => {
     }
   });
 
-  return <Game />;
+  console.log("start", start);
+
+  const reloadButton = document.getElementById("reloadButton");
+
+  reloadButton?.addEventListener("click", function () {
+    location.reload();
+  });
+
+  return <Game start={start} />;
 };
 export default GameContainer;

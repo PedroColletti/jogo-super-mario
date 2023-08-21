@@ -24,9 +24,8 @@ body {
   position: absolute;
   bottom: 0;
   width: 80px;
-  animation: pipe-animation 3s infinite linear;
-
- /* left: 450px; */
+  animation: pipe-animation 3s infinite linear; 
+  /* left: 350px; */
 }
 
 .mario{
@@ -36,7 +35,7 @@ body {
 }
 
 .jump{
-  animation: jump 1.5s;
+  animation: jump 800ms ease-out;
 }
 
 .clouds{
@@ -63,12 +62,8 @@ body {
     bottom: 0px;
   }
 
-  30%{
-    bottom: 160px;
-  }
-
   40%{
-    bottom: 170px;
+    bottom: 180px;
   }
 
   50%{
@@ -76,11 +71,7 @@ body {
   }
  
   60%{
-    bottom: 170px;
-  }
- 
-  70%{
-    bottom: 160px;
+    bottom: 180px;
   }
  
   100%{
