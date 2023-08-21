@@ -29,10 +29,16 @@ const GameContainer: React.FC = () => {
     };
 
     document.addEventListener("keydown", function (event) {
-      if (event.code === "Space") {
-        setStart(true);
-        setStart(true);
-        jump();
+      if (value <= 800 && "ontouchstart" in window === false) {
+        if (event.code === "Space") {
+          setStart(true);
+          jump();
+        }
+      } else {
+        if (event.code === "Space" && event.repeat === false) {
+          setStart(true);
+          jump();
+        }
       }
     });
   } else {
@@ -46,9 +52,16 @@ const GameContainer: React.FC = () => {
     };
 
     document.addEventListener("keydown", function (event) {
-      if (event.code === "Space") {
-        setStart(true);
-        jump();
+      if (value <= 800 && "ontouchstart" in window === false) {
+        if (event.code === "Space") {
+          setStart(true);
+          jump();
+        }
+      } else {
+        if (event.code === "Space" && event.repeat === false) {
+          setStart(true);
+          jump();
+        }
       }
     });
 
@@ -75,6 +88,6 @@ const GameContainer: React.FC = () => {
       }
     }, 10);
   }
-  return <Game start={start} count={count} />;
+  return <Game start={start} count={count} value={value} />;
 };
 export default GameContainer;

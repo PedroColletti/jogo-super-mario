@@ -10,9 +10,10 @@ import gameOver from "/game-over.png";
 type Props = {
   count: number;
   start: boolean;
+  value: number;
 };
 
-const Game: React.FC<Props> = ({ count, start }) => {
+const Game: React.FC<Props> = ({ count, start, value }) => {
   return (
     <>
       <div className="game-board">
@@ -48,7 +49,9 @@ const Game: React.FC<Props> = ({ count, start }) => {
         <>
           <img className="floor" src={floor} alt="floor" />
           <div id="reloadButton" className="madeBy">
-            aperte ESPAÇO para jogar
+            {value <= 800
+              ? `aperte ESPAÇO para jogar`
+              : `aperte na tela para jogar`}
           </div>
         </>
       </If>
@@ -57,7 +60,9 @@ const Game: React.FC<Props> = ({ count, start }) => {
           <img className="floor" src={floor} alt="floor" />
 
           <div id="reloadButton" className="madeBy">
-            aperte ESPAÇO recomeçar
+            {value <= 800
+              ? `aperte ESPAÇO recomeçar`
+              : `aperte na tela para recomeçar`}
           </div>
         </>
       </If>
