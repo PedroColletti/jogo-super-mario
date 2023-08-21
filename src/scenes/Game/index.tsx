@@ -35,10 +35,10 @@ const GameContainer: React.FC = () => {
           jump();
         }
       } else {
-        if (event.code === "Space" && event.repeat === false) {
+        document.addEventListener("touchstart", function () {
           setStart(true);
           jump();
-        }
+        });
       }
     });
   } else {
@@ -58,10 +58,10 @@ const GameContainer: React.FC = () => {
           jump();
         }
       } else {
-        if (event.code === "Space" && event.repeat === false) {
+        document.addEventListener("touchstart", function () {
           setStart(true);
           jump();
-        }
+        });
       }
     });
 
